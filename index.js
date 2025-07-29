@@ -7,7 +7,7 @@ import { spawn } from "child_process";
     .on("message", (msg) => {
       if (msg.toLowerCase() == "restart") {
         child.kill();
-        child.once("close", start);
+        child.once("exit", start);
       }
     })
     .on("exit", (code) => {
